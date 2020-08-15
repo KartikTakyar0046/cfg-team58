@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <title>Speech to text conversion using JavaScript</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+
+    </head>
+
+    <body>
+        <div class="mycontainer">
+
+            <h1>Voice search on a Json File</h1>
+
+            <div class="mywebapp"> 
+                <div class="input">
+                    <input type="text" name="search" id="search" class="form-control" />
+                </div>
+                <ul class="list-group" id="result"></ul><br />
+                <button id="start-btn" title="Start"><img src="//i.imgur.com/cHidSVu.gif" /></button>
+                <p id="instructions">Press the Start button</p>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
+
+<script>
+$(document).ready(function(){
+ $.ajaxSetup({ cache: false });
+ $('#search').keyup(function(){
+  $('#result').html('');
+  $('#state').val('');
+  var searchField = $('#search').val();
+  var expression = new RegExp(searchField, "i");
+  $.getJSON('data.json', function(data) {
+   $.each(data, function(key, value){
+    if (value.name.search(expression) != -1 || value.location.search(expression) != -1)
+    {
+     $('#result').append('<li class="list-group-item link-class"> '+value.name+' | <span class="text-muted">'+value.location+'</span></li>');
+    }
+   });   
+  });
+ });
+ 
+ $('#result').on('click', 'li', function() {
+  var click_text = $(this).text().split('|');
+  $('#search').val($.trim(click_text[0]));
+  $("#result").html('');
+ });
+});
+</script>
