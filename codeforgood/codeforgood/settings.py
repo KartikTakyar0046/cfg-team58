@@ -38,9 +38,27 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'user',
+    'rest_framework',
+    'corsheaders',  # new
+    'rest_framework.authtoken',      # for Token Authentication]
 ]
 
+
+REST_FRAMEWORK = {
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+        'rest_framework.parsers.FormParser',
+        'rest_framework.parsers.MultiPartParser',
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': (                                 # for Token Authentication
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler'
+}
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',  # new
+    'django.middleware.common.CommonMiddleware',  # new
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -67,7 +85,7 @@ TEMPLATES = [
         },
     },
 ]
-TEMPLATE_DIRS=["C:\\Users\\Kartik\\user\\templates"]
+TEMPLATE_DIRS=[BASE_DIR/'user/templates']
 
 WSGI_APPLICATION = 'codeforgood.wsgi.application'
 
@@ -120,3 +138,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_ORIGIN_ALLOW_ALL = True
