@@ -1,0 +1,15 @@
+Region,Center_Name,LDCM_Name,Reportee,Batch_Type,Batch_Code,Course_Name,Course_Name2,Status,Start_Date
+1,Punjab,Kartik ,Nikhil Sehdev,CSE,A1,OS,CN,A,30102018
+2,Delhi,Ramesh,Nikhil Sehdev,CSE,A2,OS,CN,P,15102018
+3,Hyderabad,Kartik ,Ram,CE,A3,APP,CN,A,5062018
+4,Hyderabad,Sameeksha,Nikhil Sehdev,Ce,A2,APP,CN,P,4032018
+5,Delhi,Aditya,Ram,CSE,A3,WD,CN,A,8092017
+6,Mumbai,Amulya,Ram,OE,A2,WD,CN,P,5032019
+7,Mumbai,Smily,Nikhil Sehdev,OE,A4,APP,CN,A,20112017
+8,Mumbai,Pranith,Ramesh,ECE,A1,WD,CN,P,20122017
+9,Chennai,Geetaa,Saraa,ECE,A1,ML,CN,A,31112017
+11,Hyderabad,Sandya,Ramesh,OE,A2,ML,CN,P,20062019
+12,Chennai,Geetika,Ramesh,OE,A2,AI,CN,A,20072019
+13,Chennai,Yogi,Saaraa,CSE,B1,AI,CN,P,23082019
+14,Chennai,Hari,Saaraa,CSE,B2,IE,CN,A,20112019
+15,Hyderabad,Hamsika,Nikhil Sehdev,CSE,B3,IE,CN,P,24032019
